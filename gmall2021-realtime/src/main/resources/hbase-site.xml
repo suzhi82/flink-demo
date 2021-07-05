@@ -1,0 +1,20 @@
+<configuration>
+  <property>
+    <name>hbase.zookeeper.property.clientPort</name>
+    <value>2182</value>
+    <description>
+      HBase 单机版必定会启动自带的MiniZookeeper，即使在hbase-env.sh 中
+      export HBASE_MANAGES_ZK=false 也没用，所以需要修改其端口号，避免与
+      外置的zookeeper 集群冲突，默认ZK 监听2181，改成2182 即可
+    </description>
+  </property>
+
+  <property>
+    <name>phoenix.schema.isNamespaceMappingEnabled</name>
+    <value>true</value>
+  </property>
+  <property>
+    <name>phoenix.schema.mapSystemTablesToNamespace</name>
+    <value>true</value>
+  </property>
+</configuration>
