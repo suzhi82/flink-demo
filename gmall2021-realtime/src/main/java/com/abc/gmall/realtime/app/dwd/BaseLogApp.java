@@ -55,12 +55,11 @@ public class BaseLogApp {
         }
         System.setProperty("HADOOP_USER_NAME", "abc");  // 设置HDFS 访问权限
 
+
+        // TODO 1. Source
         // 指定消费者配置信息
         String groupId = "ods_dwd_base_log_app";
         String topic = "ods_base_log";
-
-
-        // TODO 1. Source
         // 调用Kafka 工具类，从指定Kafka 主题读取数据
         FlinkKafkaConsumer<String> kafkaSource = MyKafkaUtil.getKafkaSource(topic, groupId);
         DataStreamSource<String> kafkaDS = env.addSource(kafkaSource);
